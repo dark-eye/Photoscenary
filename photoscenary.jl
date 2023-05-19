@@ -771,8 +771,8 @@ function createDDSorPNGFile(rootPath,tp,overWriteTheTiles,imageMagickPath,mapSer
                 # The DDS or PNG file was not found, so it must be obtained from an external site
                 if !isfileImagePNG
                     TilesDatabase.moveOrDeleteTiles(tileIndex,rootPath,0,pathToSave)
-                    TilesDatabase.moveOrDeleteTiles(tileIndex,rootPath,1,pathToSave)
                     isfileImagePNG = downloadImages(tp,imageWithPathTypePNG,mapServer,debugLevel) > 0
+                    TilesDatabase.moveOrDeleteTiles(tileIndex,rootPath,1,pathToSave)
                 end
                 if isPngFileFormatOnly
                     if isfileImagePNG > 0 && filesize(imageWithPathTypePNG) > 1024
